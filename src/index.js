@@ -1,7 +1,7 @@
 module.exports = function toReadable (number) {
 
   let numReading = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-  let numTenthReading = ['', '', 'tventy', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+  let numTenthReading = ['', '', 'tventy', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
   let numRankReading = ['hundred', 'thousand', 'million', 'billion'];
   let reading = '';
   let thousands = 0;
@@ -20,7 +20,7 @@ module.exports = function toReadable (number) {
   }
 
   if (number < 1000) {
-    return `${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number] : numTenthReading[(Math.floor(number/10) % 10)] + " " + numReading[(number % 10)]}`;
+    return `${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] : numTenthReading[(Math.floor(number/10) % 10)] + " " + numReading[(number % 10)]}`;
   }
 
   if (number < 100000) {
