@@ -1,7 +1,7 @@
 module.exports = function toReadable (number) {
 
   let numReading = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-  let numTenthReading = ['', 'tventy', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+  let numTenthReading = ['', '', 'tventy', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
   let numRankReading = ['hundred', 'thousand', 'million', 'billion'];
   let reading = '';
   let thousands = 0;
