@@ -2,7 +2,7 @@ module.exports = function toReadable (number) {
 
   let numReading = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
   let numTenthReading = ['ten', 'tventy', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninty'];
-  let numRankReasing = ['hundred', 'thousand', 'million', 'billion'];
+  let numRankReading = ['hundred', 'thousand', 'million', 'billion'];
   let reading = '';
   let thousands = 0;
   let millions = 0;
@@ -16,16 +16,16 @@ module.exports = function toReadable (number) {
   if (number < 20) return numReading[number];
 
   if (number < 100) {
-    return `${numTenthReading[Math.floor(number/10)]} ${numReasing[(number % 10)]}`
+    return `${numTenthReading[Math.floor(number/10)]} ${numReading[(number % 10)]}`
   }
 
   if (number < 1000) {
-    return `${numReasing[Math.floor(number/100)]} hundred ${numTenthReading[Math.floor(number/10)]} ${numReasing[(number % 10)]}`
+    return `${numReading[Math.floor(number/100)]} hundred ${numTenthReading[Math.floor(number/10)]} ${numReading[(number % 10)]}`
   }
 
   if (number < 100000) {
     thousands = number / 1000;
-    thousandString = `${numTenthReading[Math.floor(thousands/10)]} ${numReasing[(thousands % 10)]}`
-    return `${thousandString} thousand ${numReasing[Math.floor(number/100)]} hundred ${numTenthReading[Math.floor(number/10)]} ${numReasing[(number % 10)]}`
+    thousandString = `${numTenthReading[Math.floor(thousands/10)]} ${numReading[(thousands % 10)]}`
+    return `${thousandString} thousand ${numReading[Math.floor(number/100)]} hundred ${numTenthReading[Math.floor(number/10)]} ${numReading[(number % 10)]}`
   }
 }
