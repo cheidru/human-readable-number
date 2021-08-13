@@ -20,15 +20,12 @@ module.exports = function toReadable (number) {
   }
 
   if (number < 1000) {
-    return `${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] :
-       (numTenthReading[(Math.floor(number/10) % 10)] + ((number % 10) > 0) ? " " + numReading[(number % 10)] : "")}`;
+    return `${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] : (numTenthReading[(Math.floor(number/10) % 10)] + ((number % 10) > 0) ? " " + numReading[(number % 10)] : "")}`;
   }
 
   if (number < 100000) {
     thousands = Math.floor(number / 1000);
-    thousandString = `${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] :
-      (numTenthReading[(Math.floor(number/10) % 10)] + ((number % 10) > 0) ? " " + numReading[(number % 10)] : "")}`;
-    return `${thousandString} thousand ${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] :
-      (numTenthReading[(Math.floor(number/10) % 10)] + ((number % 10) > 0) ? " " + numReading[(number % 10)] : "")}`;
+    thousandString = `${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] : (numTenthReading[(Math.floor(number/10) % 10)] + ((number % 10) > 0) ? " " + numReading[(number % 10)] : "")}`;
+    return `${thousandString} thousand ${numReading[Math.floor(number/100)]} hundred ${(number % 100) < 20 ? numReading[number % 100] : (numTenthReading[(Math.floor(number/10) % 10)] + ((number % 10) > 0) ? " " + numReading[(number % 10)] : "")}`;
   }
 }
