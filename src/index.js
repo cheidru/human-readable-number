@@ -19,7 +19,7 @@ module.exports = function toReadable (number) {
     return tensString;
   }
 
-  if (number === undefined) return 'zero';
+  if (number === 0) return 'zero';
 
   if (number < 20) return numReading[number];
 
