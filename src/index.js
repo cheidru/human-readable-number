@@ -3,7 +3,6 @@ module.exports = function toReadable (number) {
   let numReading = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
   let numTenthReading = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
   let numRankReading = ['hundred', 'thousand', 'million', 'billion'];
-  let reading = '';
   let thousands = 0;
   let tens = 0;
   let hundreds = 0;
@@ -12,7 +11,7 @@ module.exports = function toReadable (number) {
   let hundredString = '';
 
   function turnTensToString(hundreds) {
-    if (hundreds === 0) return '';
+    if (hundreds === 0 || hundreds % 100 === 0 ) return '';
     tens = hundreds>100 ? hundreds % 100 : hundreds;
     tensString = tens < 20 ? numReading[tens] :
       numTenthReading[Math.floor(tens/10)] + ((tens % 10) > 0 ?
@@ -20,7 +19,7 @@ module.exports = function toReadable (number) {
     return tensString;
   }
 
-  if (number === undefined) return '';
+  if (number === undefined) return 'zero';
 
   if (number < 20) return numReading[number];
 
