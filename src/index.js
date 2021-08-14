@@ -25,11 +25,14 @@ module.exports = function toReadable (number) {
   if (number < 20) return numReading[number];
 
   if (number < 100) {
-    return (`${numTenthReading[Math.floor(number/10)]} ${numReading[(number % 10)]}`);
+    return turnTensToString(number);
   }
 
   if (number < 1000) {
-    return `${numReading[Math.floor(number/100)]} hundred ${turnTensToString(number)}`;
+    tensString = turnTensToString(number);
+    tensString = tensString === '' ? '' : ' ' + tensString;
+    hundredString = `${numReading[Math.floor(number/100)]} hundred`
+    return hundredString + tensString
   }
 
   if (number < 1000000) {
