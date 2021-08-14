@@ -15,21 +15,21 @@ module.exports = function toReadable (number) {
     if (hundreds === 0) return '';
     tens = hundreds>100 ? hundreds % 100 : hundreds;
     tensString = tens < 20 ? numReading[tens] :
-      numTenthReading[(Math.floor(tens/10)] + ((tens % 10) > 0 ?
+      numTenthReading[Math.floor(tens/10)] + ((tens % 10) > 0 ?
        ' ' + numReading[(tens % 10)] : '');
     return tensString;
   }
 
-  if (number === undefined) return ('');
+  if (number === undefined) return '';
 
-  if (number < 20) return (numReading[number]);
+  if (number < 20) return numReading[number];
 
   if (number < 100) {
     return (`${numTenthReading[Math.floor(number/10)]} ${numReading[(number % 10)]}`);
   }
 
   if (number < 1000) {
-    return (`${numReading[Math.floor(number/100)]} hundred ${turnTensToString(number)}`);
+    return `${numReading[Math.floor(number/100)]} hundred ${turnTensToString(number)}`;
   }
 
   if (number < 1000000) {
@@ -37,6 +37,6 @@ module.exports = function toReadable (number) {
     thousandString = `${numReading[Math.floor(thousands/100)]} hundred ${turnTensToString(thousands)} thousand `;
     hundreds = number % 1000;
     hundredString = `${numReading[Math.floor(hundreds/100)]} hundred ${turnTensToString(hundreds)}`;
-    return (thousandString + hundredString);
+    return thousandString + hundredString;
   }
 }
